@@ -9,7 +9,6 @@ from std_srvs.srv import Empty as EmptySrv  # This is a service type for the cli
 class Reset(Client):
     def __init__(self, node: Node):
         super().__init__("reset", node, "reset", EmptySrv)
-        super().connect()
 
     def execute(self):
         self.async_call(EmptyMsg())

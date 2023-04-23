@@ -1,5 +1,6 @@
 from rclpy.node import Node
 from typing import Any
+from functools import partial
 
 
 class Client:
@@ -11,9 +12,9 @@ class Client:
         self.srv_name = srv_name
         self.client = None
 
-        self.connect()
-
         self.node.get_logger().info(f"Client {self.name} created.")
+
+        self.connect()
 
     def connect(self) -> None:
         self.client = self.node.create_client(
@@ -49,7 +50,7 @@ class Client:
         self.node.get_logger().info(f"Client {self.name} sending request: {request}")
         future = self.client.call_async(request)  # Call the service asynchronously
         future.add_done_callback(
-            custom_callback if custom_callback else self.callback
+            partial(custom_callback) if custom_callback else partial(self.callback)
         )  # Add a callback to the future to handle the response
 
     def call(self, request: Any) -> Any:

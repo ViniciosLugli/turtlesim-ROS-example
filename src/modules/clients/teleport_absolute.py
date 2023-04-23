@@ -12,7 +12,6 @@ class TeleportAbsolute(Client):
             f"{turtle_name}/teleport_absolute",
             TeleportAbsoluteSrv,
         )
-        super().connect()
 
     def teleport(
         self,

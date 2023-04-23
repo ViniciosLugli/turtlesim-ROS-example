@@ -12,7 +12,6 @@ class TeleportRelative(Client):
             f"{turtle_name}/teleport_relative",
             TeleportRelativeSrv,
         )
-        super().connect()
 
     def teleport(
         self,
