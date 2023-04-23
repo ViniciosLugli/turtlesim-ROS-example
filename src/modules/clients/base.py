@@ -11,6 +11,8 @@ class Client:
         self.srv_name = srv_name
         self.client = None
 
+        self.connect()
+
         self.node.get_logger().info(f"Client {self.name} created.")
 
     def connect(self) -> None:

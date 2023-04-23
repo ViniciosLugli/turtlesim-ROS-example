@@ -1,7 +1,7 @@
 from .base import Client
 from rclpy.node import Node
 from turtlesim.srv import SetPen as SetPenSrv
-from turtlesim.msg import Color
+from turtlesim.srv._set_pen import SetPen_Request
 
 
 class SetPen(Client):
@@ -9,10 +9,12 @@ class SetPen(Client):
         super().__init__("set_pen", node, f"{turtle_name}/set_pen", SetPenSrv)
         super().connect()
 
-    def rgb(
+    def set_rgb(
         self,
         r: int,
         g: int,
         b: int,
+        width: int = 2,
+        off: bool = False,
     ) -> None:
-        self._client.call_async(Color(r=r, g=g, b=b))
+        self.client.call_async(SetPen_Request(r=r, g=g, b=b))

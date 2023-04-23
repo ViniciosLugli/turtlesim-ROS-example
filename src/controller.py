@@ -16,8 +16,11 @@ class TurtleController(Node):
         self.__modules_manager.add(Reset)
         self.__modules_manager.add(SetPen, "turtle1")
         self.__modules_manager.add(Velocity, "turtle1")
+        self.__modules_manager.add(Background)
 
         self.__modules_manager.access("reset").execute()
+        self.__modules_manager.access("background").set_rgb(0, 0, 0)
+        self.__modules_manager.access("set_pen").set_rgb(255, 255, 255)
 
         self.timer_ = self.create_timer(0.1, self.test_move)
 

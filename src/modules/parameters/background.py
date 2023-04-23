@@ -5,16 +5,16 @@ import rclpy
 
 class Background(Parameter):
     def __init__(self, node: Node):
-        super().__init__(node, "background")
+        super().__init__(node, "background", "turtlesim")
 
-    def get_background(self) -> (int, int, int):
+    def get_rgb(self) -> (int, int, int):
         return (
-            self.get_value(node, "background_r"),
-            self.get_value(node, "background_g"),
-            self.get_value(node, "background_b"),
+            self.get_value("background_r"),
+            self.get_value("background_g"),
+            self.get_value("background_b"),
         )
 
-    def set_background(self, r: int, g: int, b: int) -> None:
-        self.set_value("background_r", rclpy.Parameter.Type.INTEGER, r)
-        self.set_value("background_g", rclpy.Parameter.Type.INTEGER, g)
-        self.set_value("background_b", rclpy.Parameter.Type.INTEGER, b)
+    def set_rgb(self, r: int, g: int, b: int) -> None:
+        self.set_value("background_r", r)
+        self.set_value("background_g", g)
+        self.set_value("background_b", b)
