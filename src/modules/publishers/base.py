@@ -10,6 +10,8 @@ class Publisher:
         self.topic_name = topic_name
         self.publisher = None
 
+        self.connect()
+
         self.node.get_logger().info(f"Publisher {self.name} created.")
 
     def connect(self) -> None:

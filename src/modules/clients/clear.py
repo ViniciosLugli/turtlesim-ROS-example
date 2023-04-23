@@ -1,6 +1,8 @@
-from base import Client
+from .base import Client
 from rclpy.node import Node
-from std_msgs.msg import Empty as EmptyMsg  # This is a message type
+from std_srvs.srv._empty import (
+    Empty_Request as EmptyMsg,
+)  # This is a message type for the service
 from std_srvs.srv import Empty as EmptySrv  # This is a service type for the client
 
 

@@ -15,7 +15,7 @@ class Client:
 
     def connect(self) -> None:
         self.client = self.node.create_client(
-            self.srv_type, self.srv_name, 10
+            self.srv_type, self.srv_name
         )  # Create the client for the service
 
         # Wait for the service to be available before continuing ( client connect to the service )

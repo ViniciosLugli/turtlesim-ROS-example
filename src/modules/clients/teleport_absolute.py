@@ -1,4 +1,4 @@
-from base import Client
+from .base import Client
 from rclpy.node import Node
 from turtlesim.srv import TeleportAbsolute as TeleportAbsoluteSrv
 from turtlesim.srv._teleport_absolute import TeleportAbsolute_Request
